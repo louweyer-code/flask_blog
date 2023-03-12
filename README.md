@@ -1,1 +1,59 @@
-# flask_blog
+
+I HAVE NOTHING TO WEAR GENERATOR
+---------------------
+<h1 align="center">Hi 👋, I'm Lou</h1>
+<h3 align="center">I am a UX/UI Designer based in Berlin.</h3>
+
+- 🔭 I’m currently working on **this project called "I HAVE NOTHING TO WEAR GENERATOR"**
+
+- 🌱 I’m currently learning **the fundamentals of programming.**
+
+
+ <br/>
+
+Project Brief
+---------------------
+
+ A generator to pick an outfit, randomly selecting a top, bottom, shoes and potentially accessories and/or jackets. This helps when you don't know what to wear of if you want to try something new.
+<br/>
+<br/>
+
+MVP
+------------
+
+
+ * 3 clothing categories, top, pants and shoes
+ * Randomize Button for full outfit
+ * Log-in for own account
+ * Add new piece function in Account
+ <br/>
+ -> upload; Select What type of clothing
+ * Store data: pictures of clothing, log-in data
+
+Potential Features
+* 5 clothing categories top, pants, shoes, jacket, hat
+* Randomize button for each category as well
+* Multiple accounts
+* Gallery of clothes in account
+* Delete function in account
+* No jacket and hat button
+
+ <br/>
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/louisa weyerhäuser" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="louisa weyerhäuser" height="30" width="40" /></a>
+<a href="https://instagram.com/louweyer" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="louweyer" height="30" width="40" /></a>
+<a href="https://dribbble.com/louweyer" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" alt="louweyer" height="30" width="40" /></a>
+<a href="https://www.behance.net/louisa weyerhäuser" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/behance.svg" alt="louisa weyerhäuser" height="30" width="40" /></a>
+</p>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.sketch.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sketchapp/sketchapp-icon.svg" alt="sketch" width="40" height="40"/> </a> <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd.svg" alt="xd" width="40" height="40"/> </a> </p>
+
+<br/>
+owner: Louisa Weyerhäuser
+<br/>
+louweyer-code
+<br/>
+last update: Mon. 14.02.2022
