@@ -1,4 +1,3 @@
-#app.py
 from flaskblog import app
 
 #app.config.from_object('__init__')
