@@ -1,5 +1,4 @@
-#from flaskblog import app
-from flaskblog import create_app
+from flaskblog.app import create_app
 
 #app.config.from_object('__init__')
 
