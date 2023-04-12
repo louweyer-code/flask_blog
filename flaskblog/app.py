@@ -6,6 +6,7 @@ from flaskblog.routes import blueprint
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+    app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
     #postgresql://database_blog_za4j_user:eY02HhqhqzBt2U8FsveENlSqWTQdH5Bg@dpg-cgq7bvgrddlaefdp8370-a.frankfurt-postgres.render.com/database_blog_za4j
     register_extensions(app)
     register_blueprints(app)
