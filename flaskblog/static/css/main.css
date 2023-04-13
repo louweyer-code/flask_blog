@@ -79,3 +79,10 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
+form {
+  font-size: xx-large;
+  color: pink;
+  background-color: red;
+  z-index: 9999;
+}
+

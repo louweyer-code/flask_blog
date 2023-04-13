@@ -1,21 +1,23 @@
-import os
 from flask import Flask
-from flaskblog.extensions.database import db
-from flaskblog.routes import blueprint
+from flaskblog.extensions.database import db, migrate
+from flaskblog.users.routes import blueprint as bp_users
+from flaskblog.extensions.authentication import login_manager
+#from flask_bcrypt import Bcrypt
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
-    app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+    app.config.from_object('flaskblog.config')
     #postgresql://database_blog_za4j_user:eY02HhqhqzBt2U8FsveENlSqWTQdH5Bg@dpg-cgq7bvgrddlaefdp8370-a.frankfurt-postgres.render.com/database_blog_za4j
     register_extensions(app)
     register_blueprints(app)
+    #bcrypt = Bcrypt(app)
 
     return app
 
-
 def register_extensions(app: Flask):
   db.init_app(app)
+  migrate.init_app(app, db, compare_type=True)
+  login_manager.init_app(app)
 
 def register_blueprints(app: Flask):
-   app.register_blueprint(blueprint)
+   app.register_blueprint(bp_users)

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div>
+    <h1>HELPO ME</h1>
+
+    <form method="POST">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+  
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+      </div>
+      
+      <input type="submit" value="Login">
+    </form>  
+</div>
+
+{% endblock %}
+
+</html>
