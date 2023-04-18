@@ -9,7 +9,6 @@ from flask_login import login_user, logout_user
 
 blueprint = Blueprint('blog', __name__)
 
-
 @blueprint.get('/register')
 def get_register():
   return render_template('users/register.html')
@@ -52,16 +51,17 @@ def get_login():
 def post_login():
   try:
     user = User.query.filter_by(email=request.form.get('email')).first()
-
+    
     if not user:
-      raise Exception('Try again.')
+      raise Exception('No user with the given email address was found.')
+    elif not check_password_hash(user.password, request.form.get('password')):
+       raise Exception('The password does not appear to be correct.')
 
     login_user(user)
     return redirect('/home')
     
   except Exception as error_message:
     error = error_message or 'An error occurred while logging in. Please verify your email and password.'
-    print("Noope")
     return render_template('users/login.html', error=error)
   
 
