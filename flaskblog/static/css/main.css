@@ -8,6 +8,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+title {
+  color: #00ff33;
+}
+
+p {
+  color: #ff0000;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
@@ -79,10 +87,16 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-form {
-  font-size: xx-large;
-  color: pink;
-  background-color: red;
-  z-index: 9999;
+#Form input, textarea, select {
+  overflow: hidden;
+  resize: none;
+  width: 40%; 
+  font-family: 'Montserrat';
+  font-size: medium;
+  padding: 1vh !important;
+  margin: 1vh 0vh 1vh 0vh !important;
 }
 
+small {
+  font-size: small;
+}

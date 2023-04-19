@@ -6,25 +6,37 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-<div>
-    <h1>TEST LOGIN</h1>
+<div class="content-section">
+    <fieldset class="form-group">
+    <legend class="border-bottom mb-4">Log In</legend>
+        
     {% if error %}
-        <p style="color: tomato;">{{ error }}</p>
+        <span style="color: tomato;">{{ error }}</span>
     {% endif %}
 
-    <form method="POST">
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-      </div>
+    <form id="Form" method="POST">
+        <div class="form-group mb-4">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+            <small class="text-muted">We'll never share your email with anyone else.</small>
+        </div>
+    
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+        </div>
+        
+        <div class="mt-4">
+          <button type="submit" class="btn btn-dark btn-sm px-4" value="Login">Login</button>
+        </div>
+    </form>   
+    </fieldset>
   
-      <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-      </div>
-      
-      <input type="submit" value="Login">
-    </form>  
+</div>
+<div>
+    <small class="text-muted">
+        Need An Account? <a class="ml-2" href="{{ url_for('blog.get_register') }}">Register Now</a>
+    </small>
 </div>
 
 {% endblock %}

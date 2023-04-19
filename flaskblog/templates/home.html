@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<h1>HOME</h1>
 {% block content %}
     {% for post in posts %}
         <!-- <article class="media content-section">
@@ -12,5 +17,5 @@
           </div>
         </article> -->
     {% endfor %}
-    <p>Hi this is home</p>
 {% endblock content %}
+{% endblock %}
