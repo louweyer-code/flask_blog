@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "layout.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block body %}
+<h1>Posts</h1>
+<ul>
+  {% for post in posts_pagination.items  %}
+    <li>
+        <s>{{ post.name }}</s>
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Pagination -->
+<nav>
+    {% if posts_pagination.prev_num %}
+        <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a>
+    {% else %}
+        <span>Previous Page</span>
+    {% endif %}    
+
+    <span> - </span>
+
+    {% if posts_pagination.next_num %}
+        <a href="/posts?page={{ posts_pagination.next_num }}">Next Page</a>
+    {% else %}
+        <span>Next Page</span>
+    {% endif %}
+</nav>
+{% endblock %}
+
+</html>

@@ -1,14 +1,16 @@
-from flask import render_template, url_for, flash, redirect, request, Blueprint
+from flask import render_template, url_for, flash, redirect, request, Blueprint, current_app
 from flaskblog.extensions.database import db
 # from .forms import RegistrationForm, LoginForm
-from flaskblog.users.models import User
+from flaskblog.users.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 
 #from flaskblog.app import bcrypt
 
 blueprint = Blueprint('blog', __name__)
 
+
+#register routes
 @blueprint.get('/register')
 def get_register():
   return render_template('users/register.html')
@@ -32,6 +34,8 @@ def post_register():
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
     return render_template('users/register.html', error=error)
 
+
+#home
 @blueprint.route("/")
 @blueprint.route("/home")
 def home():
@@ -39,10 +43,41 @@ def home():
     # return render_template('home.html', posts=posts)
 
 
+#about
 @blueprint.route("/about")
 def about():
     return render_template('about.html', title='About')
 
+
+#posts
+@blueprint.route('/posts')
+def posts():
+    page_number = request.args.get('page', 1, type=int)
+    #print('=> Page number:', page_number)
+    posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
+    return render_template('posts.html', posts_pagination=posts_pagination)
+
+
+#new post
+@blueprint.get('/new')
+def get_newpost():
+  return render_template('new.html', posts=posts)
+
+@blueprint.post('/new')
+def post_newpost():
+
+  post = Post(
+    slug=slugify(request.form.get('title', '')),
+    title=request.form.get('title'),
+    content=request.form.get('content'),
+    user_id=current_user.get_id()
+  )
+
+  post.save()
+  return render_template('new.html', posts=posts)
+
+
+#login
 @blueprint.get('/login')
 def get_login():
   return render_template('users/login.html', title='Login')
@@ -64,7 +99,6 @@ def post_login():
     error = error_message or 'An error occurred while logging in. Please verify your email and password.'
     return render_template('users/login.html', error=error)
   
-
 @blueprint.get('/logout')
 def logout():
   logout_user()

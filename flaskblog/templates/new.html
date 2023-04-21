@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "layout.html" %}
+
+{% block title %}Create new post{% endblock %}
+
+{% block body %}
+    <h1>New post</h1>
+
+    <form>
+        <div>
+          <label for="title">Enter title</label>
+          <input type="text" name="title" id="title">
+        </div>
+
+        <div>
+          <label for="content">Write about anything!</label>
+          <input type="text" name="content" id="content">
+        </div>
+
+        <input type="submit" value="Post it">
+      </form>
+
+{% endblock %}

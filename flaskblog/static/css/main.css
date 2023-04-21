@@ -90,7 +90,8 @@ a.article-title:hover {
 #Form input, textarea, select {
   overflow: hidden;
   resize: none;
-  width: 40%; 
+  width: 40vw;
+  min-width: 400px;
   font-family: 'Montserrat';
   font-size: medium;
   padding: 1vh !important;
