@@ -65,6 +65,7 @@ def get_newpost():
 
 @blueprint.post('/new')
 def post_newpost():
+  posts = Post.query.all()
 
   post = Post(
     slug=slugify(request.form.get('title', '')),
@@ -73,8 +74,14 @@ def post_newpost():
     user_id=current_user.get_id()
   )
 
+  if not all([
+    request.form.get('title'),
+    request.form.get('content'),
+  ]):
+    return render_template('new.html', posts=posts, error='Please fill out all fields.')
+
   post.save()
-  return render_template('new.html', posts=posts)
+  return redirect('/')
 
 
 #login

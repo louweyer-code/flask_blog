@@ -1,10 +1,13 @@
+<!DOCTYPE html>
+<html>
+
 {% extends 'layout.html' %}
 
 {% block title %}
-Cookieshop | Register{% endblock %}
+Blog | Register{% endblock %}
 
 {% block body %}
-  <h1>Register</h1>
+  <!-- <h1>Register</h1>
 
   <form method="POST">
     <div>
@@ -24,5 +27,42 @@ Cookieshop | Register{% endblock %}
     
     <input type="submit" value="Sign Up">
     
-  </form>  
+  </form>   -->
+
+  <div class="content-section">
+    <fieldset class="form-group">
+    <legend class="border-bottom mb-4">Register</legend>
+        
+    {% if error %}
+        <span style="color: tomato;">{{ error }}</span>
+    {% endif %}
+
+    <form id="Form" method="POST">
+        <div class="form-group mb-4">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+        </div>
+    
+        <div class="form-group mb-4">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password_confirmation">Password Confirmation</label>
+          <input type="password_confirmation" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Repeat password" required>
+        </div>
+        
+        <div class="mt-4 mb-4">
+          <button type="submit" class="btn btn-dark btn-sm px-4" value="Sign Up">Sign Up</button>
+        </div>
+    </form>   
+    </fieldset>
+  
+</div>
+<div>
+    <small class="text-muted">
+        Already Have An Account? <a class="ml-2" href="{{ url_for('blog.get_login') }}">Log In here</a>
+    </small>
+</div>
 {% endblock %}

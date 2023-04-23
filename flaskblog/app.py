@@ -2,7 +2,7 @@ from flask import Flask
 from flaskblog.extensions.database import db, migrate
 from flaskblog.users.routes import blueprint as bp_users
 from flaskblog.extensions.authentication import login_manager
-from flaskblog.users import users, simple_pages, posts
+#from flaskblog.users import users, simple_pages, posts
 #from flask_bcrypt import Bcrypt
 
 def create_app():
@@ -22,6 +22,6 @@ def register_extensions(app: Flask):
 
 def register_blueprints(app: Flask):
   #app.register_blueprint(bp_users)
-  app.register_blueprint(bp_users.routes.blueprint)
+  app.register_blueprint(bp_users)
   # app.register_blueprint(simple_pages.routes.blueprint)
   # app.register_blueprint(posts.routes.blueprint)

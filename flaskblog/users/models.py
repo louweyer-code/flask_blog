@@ -8,7 +8,7 @@ class User(db.Model, CRUDMixin, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     image = db.Column(db.String(), nullable=False, default='default.jpg')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    #posts = db.relationship('Post', backref='user', lazy=True) #not sure if author here instead of user
+    posts = db.relationship('Post', backref='user', lazy=True) #not sure if author here instead of user
 
 class Post(db.Model, CRUDMixin):
     id = db.Column(db.Integer, primary_key=True)

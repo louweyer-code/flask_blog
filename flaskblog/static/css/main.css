@@ -87,16 +87,25 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-#Form input, textarea, select {
+#Form input, select {
   overflow: hidden;
+  color: rgb(157, 157, 157);
   resize: none;
   width: 40vw;
   min-width: 400px;
-  font-family: 'Montserrat';
-  font-size: medium;
+  /* font-family: 'Montserrat'; */
+  font-size: small;
   padding: 1vh !important;
   margin: 1vh 0vh 1vh 0vh !important;
 }
+
+#Form textarea {
+  /* font-family: 'Montserrat'; */
+  font-size: small;
+  width: 40vw;
+  min-width: 400px;
+}
+
 
 small {
   font-size: small;

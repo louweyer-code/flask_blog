@@ -6,20 +6,31 @@
 {% block title %}Create new post{% endblock %}
 
 {% block body %}
-    <h1>New post</h1>
-
-    <form>
-        <div>
-          <label for="title">Enter title</label>
-          <input type="text" name="title" id="title">
+<div class="content-section">
+    <fieldset class="form-group">
+    <legend class="border-bottom mb-4">Create new post</legend>
+            
+    {% if error %}
+        <span style="color: tomato;">{{ error }}</span>
+    {% endif %}
+    
+    <form id="Form" method="POST">
+        <div class="form-group mb-4">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="What's the title of your post?" required>
         </div>
 
-        <div>
-          <label for="content">Write about anything!</label>
-          <input type="text" name="content" id="content">
+        <div class="form-group mb-4">
+            <label class="mb-2" for="content">Subject</label>
+            <textarea type="text" class="form-control" name="content" id="content" placeholder="Write about anything!" rows="5"></textarea>
         </div>
-
-        <input type="submit" value="Post it">
-      </form>
+            
+        <div class="mt-4 mb-4">
+            <button type="submit" class="btn btn-dark btn-sm px-4" value="Post it">Post it</button>
+        </div>
+    </form>   
+    </fieldset>
+      
+</div>
 
 {% endblock %}
