@@ -9,6 +9,15 @@ from flask_login import login_user, logout_user, current_user
 
 blueprint = Blueprint('blog', __name__)
 
+#home with posts
+@blueprint.route("/")
+@blueprint.route("/home")
+def posts():
+    page_number = request.args.get('page', 1, type=int)
+    posts = Post.query.all()
+    posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
+    return render_template('posts.html', posts_pagination=posts_pagination)
+
 
 #register routes
 @blueprint.get('/register')
@@ -34,15 +43,6 @@ def post_register():
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
     return render_template('users/register.html', error=error)
 
-
-#home with posts
-@blueprint.route("/")
-@blueprint.route("/home")
-def posts():
-    page_number = request.args.get('page', 1, type=int)
-    #print('=> Page number:', page_number)
-    posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
-    return render_template('posts.html', posts_pagination=posts_pagination)
 
 
 #about

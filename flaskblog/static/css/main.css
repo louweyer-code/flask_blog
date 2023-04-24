@@ -55,9 +55,9 @@ p {
   text-decoration: none; 
 }
 
-.link:hover{
-  color: #D9FE85;;
-  text-decoration: none;
+
+.filter:hover{
+  filter: invert(89%) sepia(30%) saturate(620%) hue-rotate(25deg) brightness(105%) contrast(99%);
   transition: 0.4s;
 }
 
@@ -73,52 +73,26 @@ p {
   margin-bottom: 20px;
 }
 
-/* .article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
+.page-button {
+  border: 2px solid #D9FE85;
+  color: black;
+  border-radius: 20px;
+  padding: 8px 12px;
   text-decoration: none;
+  font-size: small;
 }
 
-.article-content {
-  white-space: pre-line;
-}
-
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-}
-
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
+.page-button:hover {
+  background-color: #D9FE85;
+  color: black;
+  border-radius: 20px;
+  padding: 8px 12px;
   text-decoration: none;
+  font-size: small;
 }
 
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
 
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
 
-.account-heading {
-  font-size: 2.5rem;
-} */
 
 #Form input, select {
   overflow: hidden;
