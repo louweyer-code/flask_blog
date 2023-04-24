@@ -1,21 +1,38 @@
+<!DOCTYPE html>
+<html>
+
 {% extends "layout.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Posts{% endblock %}
 
 {% block body %}
-<h1>HOME</h1>
-{% block content %}
-    {% for post in posts %}
-        <!-- <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
-        </article> -->
-    {% endfor %}
-{% endblock content %}
+<h1>TEST</h1>
+<ul>
+  {% for post in posts_pagination.items  %}
+    <li>
+        <p>{{ post.title }}</p>
+        <p>{{ post.content }}</p>
+        <p>{{ post.user_id }}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Pagination -->
+<nav>
+    {% if posts_pagination.prev_num %}
+        <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a>
+    {% else %}
+        <span>Previous Page</span>
+    {% endif %}    
+
+    <span> - </span>
+
+    {% if posts_pagination.next_num %}
+        <a href="/posts?page={{ posts_pagination.next_num }}">Next Page</a>
+    {% else %}
+        <span>Next Page</span>
+    {% endif %}
+</nav>
 {% endblock %}
+
+</html>

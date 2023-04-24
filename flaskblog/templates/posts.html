@@ -10,7 +10,9 @@
 <ul>
   {% for post in posts_pagination.items  %}
     <li>
-        <s>{{ post.name }}</s>
+        <p>{{ post.title }}</p>
+        <p>{{ post.content }}</p>
+        <p>{{ post.user_id }}</p>
     </li>
   {% endfor %}
 </ul>

@@ -35,27 +35,20 @@ def post_register():
     return render_template('users/register.html', error=error)
 
 
-#home
+#home with posts
 @blueprint.route("/")
 @blueprint.route("/home")
-def home():
-    return render_template('home.html', title='Home')
-    # return render_template('home.html', posts=posts)
+def posts():
+    page_number = request.args.get('page', 1, type=int)
+    #print('=> Page number:', page_number)
+    posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
+    return render_template('posts.html', posts_pagination=posts_pagination)
 
 
 #about
 @blueprint.route("/about")
 def about():
     return render_template('about.html', title='About')
-
-
-#posts
-@blueprint.route('/posts')
-def posts():
-    page_number = request.args.get('page', 1, type=int)
-    #print('=> Page number:', page_number)
-    posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
-    return render_template('posts.html', posts_pagination=posts_pagination)
 
 
 #new post
@@ -68,7 +61,7 @@ def post_newpost():
   posts = Post.query.all()
 
   post = Post(
-    slug=slugify(request.form.get('title', '')),
+    slug='placeholder slug',
     title=request.form.get('title'),
     content=request.form.get('content'),
     user_id=current_user.get_id()

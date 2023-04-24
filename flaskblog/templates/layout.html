@@ -32,7 +32,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarToggle">
         <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link" href="{{ url_for('blog.home') }}">Home</a>
+          <a class="nav-item nav-link" href="{{ url_for('blog.posts') }}">Home</a>
           <a class="nav-item nav-link" href="{{ url_for('blog.about') }}">About</a>
         </div>
       </div>
@@ -47,18 +47,44 @@
 
 <body>
   <div class="container">
-    {% block body %}{% endblock %}
-</div>
+    <div class="row">
+      <div class="col">
+        {% block body %}{% endblock %}
+      </div>
+      <div class="col col-lg-4">
+        <div class="content-section">
+          <h3>Our Sidebar</h3>
+          <p class='text-muted'>You can put any information here you'd like.
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-light">Latest Posts</li>
+              <li class="list-group-item list-group-item-light">Announcements</li>
+              <li class="list-group-item list-group-item-light">Calendars</li>
+            </ul>
+          </p>
+          <div class="row mt-4">
+            <a class="link" href="{{ url_for('blog.get_newpost') }}">
+              <div class="col">
+                <img class="navbar-item" src="../static/images/button.png" width = "25">
+              </div>
+              <div class="col">
+                <p>Create new post</p>
+              </div>
+            </a>
+          </div>
+          {% if current_user.is_authenticated %}
+          <small>
+            Logged in as {{ current_user.email }}.
+            <a href="/logout">Logout</a>
+          </small>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
-    <footer>
-      {% if current_user.is_authenticated %}
-        <small>
-          Logged in as {{ current_user.email }}.
-          <a href="/logout">Logout</a>
-        </small>
-      {% endif %}
-      </hr>
-    </footer>
+<footer>
+</footer>
 
 </html>

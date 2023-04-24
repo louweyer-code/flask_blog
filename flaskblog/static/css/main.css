@@ -20,17 +20,50 @@ p {
   background-color: #5f788a;
 }
 
-.site-header .navbar-nav .nav-link {
+/* .site-header .navbar-nav .nav-link {
   color: #cbd5db;
+} */
+
+.nav-link{
+  font-family: Arial, sans-serif;
+  opacity: 0.5;
 }
 
-.site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+.nav-link:hover {
+  color: #000000;
+  transition: 0.7s;
+  opacity: 1;
 }
 
-.site-header .navbar-nav .nav-link.active {
+.flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.link{
+  color: #000000;
+  text-decoration: none; 
+}
+
+.link:hover{
+  color: #D9FE85;;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+/* .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
-}
+} */
 
 .content-section {
   background: #ffffff;
@@ -40,7 +73,7 @@ p {
   margin-bottom: 20px;
 }
 
-.article-title {
+/* .article-title {
   color: #444444;
 }
 
@@ -85,22 +118,20 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
-}
+} */
 
 #Form input, select {
   overflow: hidden;
-  color: rgb(157, 157, 157);
+  color: rgb(0, 0, 0);
   resize: none;
   width: 40vw;
   min-width: 400px;
-  /* font-family: 'Montserrat'; */
   font-size: small;
   padding: 1vh !important;
   margin: 1vh 0vh 1vh 0vh !important;
 }
 
 #Form textarea {
-  /* font-family: 'Montserrat'; */
   font-size: small;
   width: 40vw;
   min-width: 400px;
