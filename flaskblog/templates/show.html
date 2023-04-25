@@ -32,7 +32,7 @@
 </div>
 
 
-<button class="delete-button" style="position: relative; float: right;" action="{{ url_for('blog.deletepost', slug=post.id)}}" type="submit" value="UPDATE">Delete post</button>
+<button class="delete-button" style="position: relative; float: right;" action="{{ url_for('blog.deletepost', slug=post.id)}}" type="submit" value="Delete">Delete post</button>
 
 
 {% if current_user.get_id() %}

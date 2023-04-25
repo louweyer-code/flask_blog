@@ -19,12 +19,20 @@ def posts():
     posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
     return render_template('posts.html', posts_pagination=posts_pagination)
 
+
+#### individual post
+@blueprint.route('/post/<slug>')
+def post(slug):
+    post = Post.query.filter_by(slug=slug).first_or_404()
+    return render_template('show.html', post=post)
+
+
+#edit and delete post
 @blueprint.post('/edit-post/<slug>')
 def updatepost(slug):    
 
     post = Post.query.filter_by(id=slug).first_or_404()
 
-    # post.delete()
     post.title=request.form.get('title')
     post.content=request.form.get('content')
     
@@ -37,13 +45,6 @@ def deletepost(slug):
 
     post.delete()
     return redirect('/home')
-
-
-#### individual post
-@blueprint.route('/post/<slug>')
-def post(slug):
-    post = Post.query.filter_by(slug=slug).first_or_404()
-    return render_template('show.html', post=post)
 
 
 #new post
