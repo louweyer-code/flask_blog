@@ -11,9 +11,12 @@
 {% block body %}
 <div class="mb-2">
     <a class="back-link" href="/home">← Back to all posts</a>
+    <button class="edit-button" style="position: relative; float: right;" onclick="hide_edit()">Edit post</button>
 </div>
 
-<div class="content-section">
+
+
+<div class="content-section mb-2">
 
     <legend class="border-bottom mb-4">{{ post.title }}</legend>
         <form id="Form">
@@ -28,38 +31,41 @@
         </form>
 </div>
 
-<button class="edit-button" onclick="hideh2()">Edit post</button>
-<button  class="btn btn-dark btn-sm px-4" action="{{ url_for('blog.deletepost', slug=post.id)}}" type="submit" value="UPDATE">Delete post</button>
+
+<button class="delete-button" style="position: relative; float: right;" action="{{ url_for('blog.deletepost', slug=post.id)}}" type="submit" value="UPDATE">Delete post</button>
 
 
 {% if current_user.get_id() %}
-<form style="visibility: hidden;" id="Form" action="{{ url_for('blog.updatepost', slug=post.id)}}" method="POST" class="hide has-text-centered">
-    
-    <h3>Edit</h3>
-    
-    <div class="form-group mb-4">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" class="form-control" placeholder="Change title" required>
-    </div>
-    
-    <div class="form-group mb-4">
-        <label class="mb-2" for="content">Subject</label>
-        <textarea type="text" name="content" id="content" class="form-control" placeholder="Update your text" rows="5"></textarea>
-    </div>
+<div class="hide content-section mt-5" style="visibility: hidden;">
 
-    <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
-    <!-- </div class="mt-4 mb-4">
+
+    <form id="Form" action="{{ url_for('blog.updatepost', slug=post.id)}}" method="POST">
+        
+        <legend class="border-bottom mb-4">Edit this post</legend>
+        
+        <div class="form-group mb-4">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Change title" required>
+        </div>
+        
+        <div class="form-group mb-4">
+            <label class="mb-2" for="content">Subject</label>
+            <textarea type="text" name="content" id="content" class="form-control" placeholder="Update your text" rows="5"></textarea>
+        </div>
+
         <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
-    </div> -->
+        <!-- </div class="mt-4 mb-4">
+            <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
+        </div> -->
 
-
-</form>
+    </form>
+</div>
 {% endif %}
 
 <script>
     const test = document.querySelector(".hide")
 
-    function hideh2() {
+    function hide_edit() {
         if (test.style.visibility === "hidden"){
             test.style.visibility = "visible";
         } else {
