@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "layout.html" %}
+
+{% set active_page = '' %}
+
+{% block title %}Individual post{% endblock %}
+
+
+{% block body %}
+
+<h1>{{post.title}}</h1>
+<h1>{{post.content}}</h1>
+
+<button class="test-button" onclick="hideh2()">Test</button>
+
+<a href="/home">Back to all posts</a>
+
+
+{% if current_user.get_id() %}
+<form style="visibility: hidden;" id="Form" action="{{ url_for('blog.updatepost', slug=post.id)}}" method="POST" class="has-text-centered">
+    <h3>Edit</h3>
+    <div class="form-group mb-4">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" class="form-control" placeholder="Change title" required>
+    </div>
+    <div class="form-group mb-4">
+        <label class="mb-2" for="content">Subject</label>
+        <textarea type="text" name="content" id="content" class="form-control" placeholder="Update your text" rows="5"></textarea>
+    </div>
+    </div class="mt-4 mb-4">
+        <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
+    </div>
+</form>
+{% endif %}
+
+<script>
+    const test = document.querySelector("#Form")
+
+    function hideh2() {
+        if (test.style.visibility === "hidden"){
+            test.style.visibility = "visible";
+        } else {
+            test.style.visibility = "hidden";
+        }
+        
+    }
+</script>
+{% endblock %}
+
+</html>
+

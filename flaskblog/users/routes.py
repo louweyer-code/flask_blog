@@ -3,7 +3,8 @@ from flaskblog.extensions.database import db
 # from .forms import RegistrationForm, LoginForm
 from flaskblog.users.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
+#from werkzeug.utils import slugify
 
 #from flaskblog.app import bcrypt
 
@@ -18,8 +19,67 @@ def posts():
     posts_pagination = Post.query.paginate(page=page_number, per_page=current_app.config['POSTS_PER_PAGE'])
     return render_template('posts.html', posts_pagination=posts_pagination)
 
+@blueprint.post('/edit-post/<slug>')
+def updatepost(slug):    
 
-#register routes
+    post = Post.query.filter_by(id=slug).first_or_404()
+
+    # post.delete()
+    post.title=request.form.get('title')
+    post.content=request.form.get('content')
+    
+    post.save()
+    return redirect('/home')
+
+@blueprint.post('/delete-post/<slug>')
+def deletepost(slug):    
+    post = Post.query.filter_by(id=slug).first_or_404()
+
+    post.delete()
+    return redirect('/home')
+
+
+#### individual post
+@blueprint.route('/post/<slug>')
+def post(slug):
+    post = Post.query.filter_by(slug=slug).first_or_404()
+    return render_template('show.html', post=post)
+
+
+#new post
+@blueprint.get('/new')
+@login_required
+def get_newpost():
+  return render_template('new.html', posts=posts)
+
+@blueprint.post('/new')
+def post_newpost():
+  posts = Post.query.all()
+
+  post = Post(
+    slug=slugify(request.form.get('title', '')),
+    title=request.form.get('title'),
+    content=request.form.get('content'),
+    user_id=current_user.get_id()
+  )
+
+  if not all([
+    request.form.get('title'),
+    request.form.get('content'),
+  ]):
+    return render_template('new.html', posts=posts, error='Please fill out all fields.')
+
+  post.save()
+  return redirect('/')
+
+
+#about
+@blueprint.route("/about")
+def about():
+    return render_template('about.html', title='About')
+
+
+#####register
 @blueprint.get('/register')
 def get_register():
   return render_template('users/register.html')
@@ -42,42 +102,10 @@ def post_register():
   except Exception as error_message:
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
     return render_template('users/register.html', error=error)
+  
 
 
-
-#about
-@blueprint.route("/about")
-def about():
-    return render_template('about.html', title='About')
-
-
-#new post
-@blueprint.get('/new')
-def get_newpost():
-  return render_template('new.html', posts=posts)
-
-@blueprint.post('/new')
-def post_newpost():
-  posts = Post.query.all()
-
-  post = Post(
-    slug='placeholder slug',
-    title=request.form.get('title'),
-    content=request.form.get('content'),
-    user_id=current_user.get_id()
-  )
-
-  if not all([
-    request.form.get('title'),
-    request.form.get('content'),
-  ]):
-    return render_template('new.html', posts=posts, error='Please fill out all fields.')
-
-  post.save()
-  return redirect('/')
-
-
-#login
+#####login
 @blueprint.get('/login')
 def get_login():
   return render_template('users/login.html', title='Login')
@@ -98,54 +126,11 @@ def post_login():
   except Exception as error_message:
     error = error_message or 'An error occurred while logging in. Please verify your email and password.'
     return render_template('users/login.html', error=error)
-  
+
+####logout
 @blueprint.get('/logout')
 def logout():
   logout_user()
 
   return redirect('/home')
 
-
-
-# posts = [
-#     {
-#         'author': 'Corey Schafer',
-#         'title': 'Blog Post 1',
-#         'content': 'First post content',
-#         'date_posted': 'April 20, 2018'
-#     },
-#     {
-#         'author': 'Jane Doe',
-#         'title': 'Blog Post 2',
-#         'content': 'Second post content',
-#         'date_posted': 'April 21, 2018'
-#     }
-# ]
-
-
-# @blueprint.route("/register", methods=['GET', 'POST'])
-# def register():
-#     form = RegistrationForm()
-#     if form.validate_on_submit():
-#         user = User(username=form.username.data, email=form.email.data, password=generate_password_hash)
-#         db.session.add(user)
-#         db.session.commit()
-#         flash('Your account has been created! You are now able to log in', 'success')
-#         return redirect(url_for('login'))
-#     return render_template('users/register.html', title='Register', form=form)
-
-
-# @blueprint.route("/login", methods=['GET', 'POST'])
-# def login():
-#     form = LoginForm()
-#     if form.validate_on_submit():
-#         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-#             flash('You have been logged in!', 'success')
-#             return redirect(url_for('home'))
-#         else:
-#             flash('Login Unsuccessful. Please check username and password', 'danger')
-#     return render_template('users/login.html', title='Login', form=form)
-
-# @blueprint.get('/logout')
-# def logout():
-#   return 'User logged out'
