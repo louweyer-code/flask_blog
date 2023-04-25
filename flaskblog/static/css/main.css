@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 title {
-  color: #00ff33;
+  color: #4c00ff;
 }
 
 p {
@@ -50,14 +50,34 @@ p {
   font-size: 30px;
 }
 
-.link{
+.link {
   color: #000000;
   text-decoration: none; 
 }
 
+.post-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: large;
+  font-weight: 500;
+}
+
+.post-link:hover {
+  color: #b2dc50;
+}
+
+.back-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: small;
+}
+
+.back-link:hover {
+  color: #b2dc50;
+}
 
 .filter:hover{
-  filter: invert(89%) sepia(30%) saturate(620%) hue-rotate(25deg) brightness(105%) contrast(99%);
+  filter: invert(100%) sepia(34%) saturate(3741%) hue-rotate(17deg) brightness(95%) contrast(79%);
   transition: 0.4s;
 }
 
@@ -74,7 +94,7 @@ p {
 }
 
 .page-button {
-  border: 2px solid #D9FE85;
+  border: 2px solid #c6ec6d;
   color: black;
   border-radius: 20px;
   padding: 8px 12px;
@@ -84,15 +104,18 @@ p {
 
 .page-button:hover {
   background-color: #D9FE85;
+  border: 2px solid #D9FE85;
+}
+
+.edit-button {
+  border: 1px solid #000000;
+  background-color: none;
   color: black;
   border-radius: 20px;
-  padding: 8px 12px;
+  padding: 4px 8px;
   text-decoration: none;
   font-size: small;
 }
-
-
-
 
 #Form input, select {
   overflow: hidden;
