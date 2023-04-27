@@ -40,7 +40,7 @@
     <nav>
         {% if posts_pagination.prev_num %}
             <!-- <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a> -->
-            <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a>
+            <a href="/home?page={{ posts_pagination.prev_num }}">Previous Page</a>
             
         {% else %}
             <span></span>
@@ -49,7 +49,7 @@
         <span> - </span>
 
         {% if posts_pagination.next_num %}
-            <a class="page-button" href="/posts?page={{ posts_pagination.next_num }}">Next Page</a>
+            <a class="page-button" href="/home?page={{ posts_pagination.next_num }}">Next Page</a>
         {% else %}
             <span></span>
         {% endif %}
