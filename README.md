@@ -1,42 +1,28 @@
 
-I HAVE NOTHING TO WEAR GENERATOR
+SIMPLE FLASK BLOG
 ---------------------
 <h1 align="center">Hi 👋, I'm Lou</h1>
 <h3 align="center">I am a UX/UI Designer based in Berlin.</h3>
-
-- 🔭 I’m currently working on **this project called "I HAVE NOTHING TO WEAR GENERATOR"**
 
 - 🌱 I’m currently learning **the fundamentals of programming.**
 
 
  <br/>
 
-Project Brief
+Project Description
 ---------------------
 
- A generator to pick an outfit, randomly selecting a top, bottom, shoes and potentially accessories and/or jackets. This helps when you don't know what to wear of if you want to try something new.
+Designers Unite is a flask blog for designers to post about anything related to design. The blog entails a home.html with all the existing posts through pagination. An about page and a register/login page.
+<br/>
+To create a post and post it users have to create an account, log in and then find the create new post button in the sidebar. If not logged in, creating a post is unavailable. 
+<br/>
+To read a full post it can be clicked on and if the user is also the author it can be edited or deleted.
 <br/>
 <br/>
 
-MVP
-------------
-
-
- * 3 clothing categories, top, pants and shoes
- * Randomize Button for full outfit
- * Log-in for own account
- * Add new piece function in Account
- <br/>
- -> upload; Select What type of clothing
- * Store data: pictures of clothing, log-in data
-
-Potential Features
-* 5 clothing categories top, pants, shoes, jacket, hat
-* Randomize button for each category as well
-* Multiple accounts
-* Gallery of clothes in account
-* Delete function in account
-* No jacket and hat button
+Installation and usage
+----------------------
+To test all the available function, create an account via register. After that log in and the creating new post button is available. To test the delete function a post has to be created, then click on a post you created and the edit/delete buttons appear.
 
  <br/>
 
