@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class User(db.Model, CRUDMixin, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
+    password = db.Column(db.String(500), nullable=False)
     image = db.Column(db.String(), nullable=True, default='default.jpg')
     #posts = db.relationship('Post', backref='user', lazy=True) not sure if author here instead of user
 
