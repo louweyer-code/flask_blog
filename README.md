@@ -28,7 +28,7 @@ To test all the available function, create an account via register. After that l
  
  Limitation
 ---------------------
-Currently the About page is under construction and the sidebars item announcements will so far redirect to /about and the events item is not implement and just a placeholder.
+Currently the About page is under construction and the sidebar item announcements will so far redirect to /about and the events item is not implemented and just a placeholder.
 Additionally the posts display the respective user_id of the post instead of the users email.
 
 <br/>
