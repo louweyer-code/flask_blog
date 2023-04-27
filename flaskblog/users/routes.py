@@ -1,12 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint, current_app
 from flaskblog.extensions.database import db
-# from .forms import RegistrationForm, LoginForm
 from flaskblog.users.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, current_user, login_required
-#from werkzeug.utils import slugify
-
-#from flaskblog.app import bcrypt
 
 blueprint = Blueprint('blog', __name__)
 

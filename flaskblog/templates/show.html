@@ -9,9 +9,13 @@
 
 
 {% block body %}
+
 <div class="mb-2">
     <a class="back-link" href="/home">← Back to all posts</a>
+
+    {% if current_user.id == post.user_id %}
     <button class="edit-button" style="position: relative; float: right;" onclick="hide_edit()">Edit post</button>
+    {% endif %}
 </div>
 
 
@@ -31,9 +35,11 @@
         </form>
 </div>
 
+{% if current_user.id == post.user_id %}
 <form action="{{ url_for('blog.deletepost', slug=post.id)}}" method="post">
     <button class="delete-button" style="position: relative; float: right;" type="submit" value="Delete">Delete post</button>
 </form>
+{% endif %}
 
 
 {% if current_user.get_id() %}
@@ -55,9 +61,7 @@
         </div>
 
         <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
-        <!-- </div class="mt-4 mb-4">
-            <button  class="btn btn-dark btn-sm px-4" type="submit" value="UPDATE">Update</button>
-        </div> -->
+
 
     </form>
 </div>

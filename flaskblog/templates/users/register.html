@@ -3,8 +3,7 @@
 
 {% extends 'layout.html' %}
 
-{% block title %}
-Blog | Register{% endblock %}
+{% block title %}Blog | Register{% endblock %}
 
 {% block body %}
 
@@ -13,7 +12,7 @@ Blog | Register{% endblock %}
     <legend class="border-bottom mb-4">Register</legend>
         
     {% if error %}
-        <span style="color: tomato;">{{ error }}</span>
+        <span style="color: rgb(252, 89, 60);">{{ error }}</span>
     {% endif %}
 
     <form id="Form" method="POST">
@@ -39,6 +38,7 @@ Blog | Register{% endblock %}
     </fieldset>
   
 </div>
+
 <div>
     <small class="text-muted">
         Already Have An Account? <a class="ml-2" href="{{ url_for('blog.get_login') }}">Log In here</a>

@@ -6,8 +6,9 @@
 {% block title %}Posts{% endblock %}
 
 {% block body %}
+
 <!-- Home with all posts -->
-<h2>Latest posts</h2>
+<h3>Latest posts</h3>
 
 <div>
     <fieldset class="form-group">
@@ -39,17 +40,13 @@
 <div class="mb-4">
     <nav>
         {% if posts_pagination.prev_num %}
-            <!-- <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a> -->
-            <a href="/home?page={{ posts_pagination.prev_num }}">Previous Page</a>
-            
+            <a class="page-button mr-5" href="/home?page={{ posts_pagination.prev_num }}">Previous Page</a>
         {% else %}
             <span></span>
         {% endif %}    
 
-        <span> - </span>
-
         {% if posts_pagination.next_num %}
-            <a class="page-button" href="/home?page={{ posts_pagination.next_num }}">Next Page</a>
+            <a class="page-button ml-5" href="/home?page={{ posts_pagination.next_num }}">Next Page</a>
         {% else %}
             <span></span>
         {% endif %}
