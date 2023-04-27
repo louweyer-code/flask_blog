@@ -25,6 +25,13 @@ Installation and usage
 To test all the available function, create an account via register. After that log in and the creating new post button is available. To test the delete function a post has to be created, then click on a post you created and the edit/delete buttons appear.
 
  <br/>
+ 
+ Limitation
+---------------------
+Currently the About page is under construction and the sidebars item announcements will so far redirect to /about and the events item is not implement and just a placeholder.
+Additionally the posts display the respective user_id of the post instead of the users email.
+
+<br/>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
