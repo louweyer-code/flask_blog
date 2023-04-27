@@ -85,6 +85,13 @@ p {
 .post-link:hover {
   color: #b2dc50;
 }
+.read-link {
+  color: #b2dc50;
+}
+
+.read-link:hover {
+  color: #81a826;
+}
 
 .back-link {
   color: #000000;
