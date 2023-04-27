@@ -15,7 +15,7 @@
     {% for post in posts_pagination.items %}
     <div class="content-section">
         <legend class="border-bottom mb-2">
-            <a href="{{ url_for('blog.post', slug=post.id) }}" class="post-link">{{ post.title }}</a>
+            <a href="{{ url_for('blog.post', id=post.id) }}" class="post-link">{{ post.title }}</a>
         </legend>
 
         
@@ -40,7 +40,7 @@
     <nav>
         {% if posts_pagination.prev_num %}
             <!-- <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a> -->
-            <a href="/?posts={{ posts_pagination.prev_num }}">Previous Page</a>
+            <a href="/posts?page={{ posts_pagination.prev_num }}">Previous Page</a>
             
         {% else %}
             <span></span>
@@ -49,7 +49,7 @@
         <span> - </span>
 
         {% if posts_pagination.next_num %}
-            <a class="page-button" href="/?posts={{ posts_pagination.next_num }}">Next Page</a>
+            <a class="page-button" href="/posts?page={{ posts_pagination.next_num }}">Next Page</a>
         {% else %}
             <span></span>
         {% endif %}

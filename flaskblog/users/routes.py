@@ -21,9 +21,9 @@ def posts():
 
 
 #### individual post
-@blueprint.route('/post/<slug>')
-def post(slug):
-    post = Post.query.filter_by(slug=slug).first_or_404()
+@blueprint.route('/post/<id>')
+def post(id):
+    post = Post.query.filter_by(id=id).first_or_404()
     return render_template('show.html', post=post)
 
 
