@@ -58,7 +58,7 @@ def post_newpost():
   posts = Post.query.all()
 
   post = Post(
-    slug=slugify(request.form.get('title', '')),
+    slug=request.form.get('title'),
     title=request.form.get('title'),
     content=request.form.get('content'),
     user_id=current_user.get_id()
@@ -99,7 +99,7 @@ def post_register():
     )
     user.save()
 
-    return 'User created'
+    return redirect(url_for('blog.posts'))
   except Exception as error_message:
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
     return render_template('users/register.html', error=error)
